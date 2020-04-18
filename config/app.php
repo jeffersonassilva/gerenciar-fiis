@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'pt_BR',
+    'locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \App\Providers\CustomResponseProvider::class,
 
         /*
          * Application Service Providers...
