@@ -24,6 +24,7 @@ class CotasRequest extends FormRequest
     public function rules()
     {
         return [
+            'nr_cotas' => 'required',
             'vl_cota' => 'required',
             'dt_compra' => 'required',
             'cd_fii' => 'required',
@@ -36,8 +37,9 @@ class CotasRequest extends FormRequest
     public function attributes()
     {
         return [
-            'vl_cota' => 'Valor',
-            'dt_compra' => 'Data da Compra',
+            'nr_cotas' => 'Quantidade de cotas',
+            'vl_cota' => 'Valor por cota',
+            'dt_compra' => 'Data da compra',
             'cd_fii' => 'Código do Fii',
         ];
     }

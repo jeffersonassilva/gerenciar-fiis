@@ -52,6 +52,13 @@ const routes = [
             title: 'Fiis',
         }
     },
+    {
+        path: '/cotas',
+        component: () => import('./views/cotas/Cotas'),
+        meta: {
+            title: 'Cotas',
+        }
+    },
 ];
 
 const router = new VueRouter({

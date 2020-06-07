@@ -18,8 +18,9 @@ class CreateCotasTable extends Migration
     {
         Schema::create('cotas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('vl_cota', '15');
-            $table->string('dt_compra', '10');
+            $table->integer('nr_cotas');
+            $table->float('vl_cota');
+            $table->date('dt_compra');
             $table->bigInteger('cd_fii')->unsigned()->index();
             $table->timestamps();
             $table->softDeletes();

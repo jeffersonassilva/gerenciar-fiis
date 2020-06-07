@@ -2037,6 +2037,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {}
 });
@@ -37706,6 +37707,12 @@ var render = function() {
           _c(
             "li",
             [_c("router-link", { attrs: { to: "/fiis" } }, [_vm._v("Fiis")])],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [_c("router-link", { attrs: { to: "/cotas" } }, [_vm._v("Cotas")])],
             1
           )
         ])
@@ -94517,6 +94524,14 @@ var routes = [{
   },
   meta: {
     title: 'Fiis'
+  }
+}, {
+  path: '/cotas',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/cotas/Cotas */ "./resources/js/views/cotas/Cotas.vue"));
+  },
+  meta: {
+    title: 'Cotas'
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
