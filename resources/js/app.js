@@ -19,7 +19,42 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('menu-component', require('./components/MenuComponent.vue').default);
+
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
+import Vuetify from 'vuetify';
+Vue.use(Vuetify);
+
+const routes = [
+    {
+        path: '',
+        component: () => import('./views/dashboard/Dashboard'),
+        meta: {
+            title: 'Dashboard',
+        }
+    },
+    {
+        path: '/usuarios',
+        component: () => import('./views/usuarios/Usuarios'),
+        meta: {
+            title: 'Usuários',
+        }
+    },
+    {
+        path: '/fiis',
+        component: () => import('./views/fiis/Fiis'),
+        meta: {
+            title: 'Fiis',
+        }
+    },
+];
+
+const router = new VueRouter({
+    routes // short for `routes: routes`
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28,5 +63,21 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
+    router,
     el: '#app',
+    vuetify: new Vuetify({
+        theme: {
+            themes: {
+                light: {
+                    primary: '#673AB7',
+                    secondary: '#512DA8',
+                    accent: '#82B1FF',
+                    error: '#D32F2F',
+                    info: '#1976D2',
+                    success: '#00796B',
+                    warning: '#FFA000',
+                },
+            },
+        },
+    })
 });

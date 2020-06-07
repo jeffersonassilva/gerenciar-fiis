@@ -24,7 +24,7 @@ class FiisRequest extends FormRequest
     public function rules()
     {
         return [
-            'sigla' => 'required|max:10',
+            'co_sigla' => 'required|max:10',
         ];
     }
 
@@ -34,7 +34,7 @@ class FiisRequest extends FormRequest
     public function attributes()
     {
         return [
-            'sigla' => 'Sigla',
+            'co_sigla' => 'Sigla',
         ];
     }
 }

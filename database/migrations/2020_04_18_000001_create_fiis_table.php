@@ -18,7 +18,14 @@ class CreateFiisTable extends Migration
     {
         Schema::create('fiis', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('sigla', '10');
+            $table->string('co_sigla', '10');
+            $table->string('ds_alvo', '50');
+            $table->string('ds_tipo', '100');
+            $table->string('ds_administrador', '255');
+            $table->string('vl_ultimo_rendimento', '255');
+            $table->string('dt_pagamento', '255');
+            $table->string('nr_cotistas', '15');
+            $table->string('vl_patrimonio', '30');
             $table->timestamps();
             $table->softDeletes();
         });
