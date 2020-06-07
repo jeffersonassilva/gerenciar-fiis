@@ -12,7 +12,7 @@ class FiisRepository extends AbstractRepository
 {
     protected $fieldSearchable = [
         'id',
-        'sigla' => 'like',
+        'co_sigla' => 'like',
     ];
 
     /**

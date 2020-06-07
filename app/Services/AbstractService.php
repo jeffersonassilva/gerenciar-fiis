@@ -26,7 +26,7 @@ abstract class AbstractService
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $data = $this->repository->with($this->repository->relationships);
 
-        return request()->pagination == 'false' ? $data->all() : $data->paginate();
+        return request()->pagination == 'false' ? $data->all() : $data->paginate(10);
     }
 
     /**
