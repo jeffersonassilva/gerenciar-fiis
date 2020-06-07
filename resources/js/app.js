@@ -23,9 +23,11 @@ window.Vue = require('vue');
 Vue.component('menu-component', require('./components/MenuComponent.vue').default);
 
 import VueRouter from 'vue-router';
+
 Vue.use(VueRouter);
 
 import Vuetify from 'vuetify';
+
 Vue.use(Vuetify);
 
 const routes = [

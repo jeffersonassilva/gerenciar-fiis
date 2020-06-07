@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "519e6eec-8c40-405f-9924-edb35f8043bd",
+		"name": "GERENCIAR FIIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fiis",
+			"item": [
+				{
+					"name": "fiis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/fiis?search=co_sigla:FOF",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fiis"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "co_sigla:FOF"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fiis",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"sigla\": \"KNCR11\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/fiis",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fiis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fiis",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"sigla\": \"HFOF12\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/fiis/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fiis",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fiis",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/fiis/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fiis",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Cotas",
+			"item": [
+				{
+					"name": "cotas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cotas?search=cd_fii:87",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cotas"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "cd_fii:87"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cotas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"vl_cota\": \"100.00\",\n\t\"dt_compra\": \"2020-06-06\",\n\t\"cd_fii\": 87\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cotas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cotas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cotas",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"vl_cota\": \"120.00\",\n    \"dt_compra\": \"2020-06-06\",\n    \"cd_fii\": 200\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cotas/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cotas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cotas",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cotas/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cotas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "edd93038-ab8c-43d2-9bee-dfc42619c840",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2cbe7394-98fa-4117-b088-91154bbd3b06",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
