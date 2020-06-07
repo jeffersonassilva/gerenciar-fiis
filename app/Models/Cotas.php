@@ -21,7 +21,10 @@ class Cotas extends AbstractModel
     /**
      * @var array
      */
-    protected $appends = array('vl_investido');
+    protected $appends = [
+        'vl_investido',
+        'ds_sigla',
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -37,5 +40,15 @@ class Cotas extends AbstractModel
     public function getVlInvestidoAttribute()
     {
         return $this->getAttribute('nr_cotas') * $this->getAttribute('vl_cota');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDsSiglaAttribute()
+    {
+        $ic_subscricao = $this->getAttribute('ic_subscricao');
+        $fii = $this->fii()->first();
+        return $ic_subscricao === 1 ? $fii->co_sigla . ' (subscrição)' : $fii->co_sigla;
     }
 }

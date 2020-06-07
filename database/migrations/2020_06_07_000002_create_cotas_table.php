@@ -21,6 +21,7 @@ class CreateCotasTable extends Migration
             $table->integer('nr_cotas');
             $table->float('vl_cota');
             $table->date('dt_compra');
+            $table->integer('ic_subscricao')->default(0);
             $table->bigInteger('cd_fii')->unsigned()->index();
             $table->timestamps();
             $table->softDeletes();

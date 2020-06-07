@@ -27,6 +27,7 @@ class CotasRequest extends FormRequest
             'nr_cotas' => 'required',
             'vl_cota' => 'required',
             'dt_compra' => 'required',
+            'ic_subscricao' => 'required',
             'cd_fii' => 'required',
         ];
     }
@@ -40,6 +41,7 @@ class CotasRequest extends FormRequest
             'nr_cotas' => 'Quantidade de cotas',
             'vl_cota' => 'Valor por cota',
             'dt_compra' => 'Data da compra',
+            'ic_subscricao' => 'Indicador de subscrição',
             'cd_fii' => 'Código do Fii',
         ];
     }

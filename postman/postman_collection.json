@@ -142,7 +142,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/cotas?search=cd_fii:87",
+							"raw": "http://127.0.0.1:8000/api/cotas",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -154,12 +154,6 @@
 							"path": [
 								"api",
 								"cotas"
-							],
-							"query": [
-								{
-									"key": "search",
-									"value": "cd_fii:87"
-								}
 							]
 						}
 					},
@@ -179,7 +173,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"vl_cota\": \"100.00\",\n\t\"dt_compra\": \"2020-06-06\",\n\t\"cd_fii\": 87\n}"
+							"raw": "{\n\t\"nr_cotas\": 5,\n\t\"vl_cota\": 102.41,\n\t\"dt_compra\": \"2020-06-06\",\n\t\"cd_fii\": 87,\n\t\"ic_subscricao\": 0\n}"
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/cotas",
@@ -213,7 +207,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"vl_cota\": \"120.00\",\n    \"dt_compra\": \"2020-06-06\",\n    \"cd_fii\": 200\n}"
+							"raw": "{\n\t\"nr_cotas\": 7,\n\t\"vl_cota\": \"120.00\",\n    \"dt_compra\": \"2020-06-06\",\n    \"cd_fii\": 200,\n    \"ic_subscricao\": 0\n}"
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/cotas/1",

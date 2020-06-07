@@ -30,7 +30,7 @@
                 title: this.$route.meta.title || '',
                 data: [],
                 headers: [
-                    {text: 'Sigla', value: 'fii.co_sigla', sortable: false},
+                    {text: 'Sigla', value: 'ds_sigla', sortable: false},
                     {text: 'Quantidade', value: 'nr_cotas', sortable: false},
                     {text: 'Valor Unitário', value: 'vl_cota', sortable: false},
                     {text: 'Valor Investido', value: 'vl_investido', sortable: false},
