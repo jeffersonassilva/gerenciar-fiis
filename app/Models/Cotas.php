@@ -22,6 +22,7 @@ class Cotas extends AbstractModel
      * @var array
      */
     protected $appends = [
+        'vl_unitario_cota',
         'vl_investido',
         'ds_sigla',
     ];
@@ -35,11 +36,38 @@ class Cotas extends AbstractModel
     }
 
     /**
-     * @return float|int
+     * @param $value
+     * @return false|string
+     */
+    public function getDtCompraAttribute($value)
+    {
+        return date('d/m/Y', strtotime($value));
+    }
+
+    /**
+     * @return string
+     */
+    public function getVlUnitarioCotaAttribute()
+    {
+        return 'R$ ' . number_format(
+                $this->getAttribute('vl_cota'),
+                '2',
+                ',',
+                '.'
+            );
+    }
+
+    /**
+     * @return string
      */
     public function getVlInvestidoAttribute()
     {
-        return $this->getAttribute('nr_cotas') * $this->getAttribute('vl_cota');
+        return 'R$ ' . number_format(
+                $this->getAttribute('nr_cotas') * $this->getAttribute('vl_cota'),
+                '2',
+                ',',
+                '.'
+            );
     }
 
     /**

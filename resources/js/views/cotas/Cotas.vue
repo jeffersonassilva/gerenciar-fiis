@@ -7,6 +7,7 @@
                 :items="data.data"
                 :hide-default-footer=true
                 class="elevation-1"
+                :items-per-page="data.per_page"
         ></v-data-table>
 
         <div class="text-center mt-5">
@@ -14,7 +15,6 @@
                     v-model="data.current_page"
                     :length="data.last_page"
                     :circle=true
-                    :total-visible="7"
                     color="primary"
                     @input="onPageChange"
             ></v-pagination>
@@ -32,7 +32,7 @@
                 headers: [
                     {text: 'Sigla', value: 'ds_sigla', sortable: false},
                     {text: 'Quantidade', value: 'nr_cotas', sortable: false},
-                    {text: 'Valor Unitário', value: 'vl_cota', sortable: false},
+                    {text: 'Valor Unitário', value: 'vl_unitario_cota', sortable: false},
                     {text: 'Valor Investido', value: 'vl_investido', sortable: false},
                     {text: 'Dt. Compra', value: 'dt_compra', sortable: false},
                 ],

@@ -142,7 +142,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/cotas",
+							"raw": "http://127.0.0.1:8000/api/cotas?orderBy=id&sortedBy=desc",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -154,6 +154,21 @@
 							"path": [
 								"api",
 								"cotas"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "all:1",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "id"
+								},
+								{
+									"key": "sortedBy",
+									"value": "desc"
+								}
 							]
 						}
 					},
