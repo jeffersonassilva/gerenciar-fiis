@@ -13,6 +13,7 @@ class CotasRepository extends AbstractRepository
     protected $fieldSearchable = [
         'id',
         'cd_fii',
+        'fii.co_sigla' => 'like',
     ];
 
     /**
