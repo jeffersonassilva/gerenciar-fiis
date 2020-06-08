@@ -6,6 +6,7 @@
                 <ul>
                     <li><router-link to="/usuarios">Usuários</router-link></li>
                     <li><router-link to="/fiis">Fiis</router-link></li>
+                    <li><router-link to="/cotas">Cotas</router-link></li>
                 </ul>
             </div>
         </div>

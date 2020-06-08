@@ -1,12 +1,6 @@
 <template>
     <div class="container">
-        <!--<v-icon>arrow_downward</v-icon>-->
-        <!--<v-btn color="success">Success</v-btn>-->
-        <!--<v-btn color="error">Error</v-btn>-->
-        <!--<v-btn color="warning">Warning</v-btn>-->
-        <!--<v-btn color="info">Info</v-btn>-->
-
-        <h4 class="mb-5 primary--text">Lista de FIIs</h4>
+        <h4 class="mb-5 primary--text">Minhas Cotas</h4>
 
         <v-data-table
                 :headers="headers"
@@ -37,11 +31,11 @@
                 title: this.$route.meta.title || '',
                 data: [],
                 headers: [
-                    {text: 'Sigla', value: 'co_sigla', sortable: false},
-                    {text: 'Administrador', value: 'ds_administrador', sortable: false},
-                    {text: 'Alvo', value: 'ds_alvo', sortable: false},
-                    {text: 'Tipo', value: 'ds_tipo', sortable: false},
-                    {text: 'Cotistas', value: 'nr_cotistas', sortable: false},
+                    {text: 'Sigla', value: 'ds_sigla', sortable: false},
+                    {text: 'Quantidade', value: 'nr_cotas', sortable: false},
+                    {text: 'Valor Unitário', value: 'vl_unitario_cota', sortable: false},
+                    {text: 'Valor Investido', value: 'vl_investido', sortable: false},
+                    {text: 'Dt. Compra', value: 'dt_compra', sortable: false},
                 ],
             }
         },
@@ -50,7 +44,7 @@
         },
         methods: {
             getAll(filtro = '') {
-                axios.get('/api/fiis' + filtro).then(response => {
+                axios.get('/api/cotas' + filtro).then(response => {
                     this.pagination = response.data.data;
                     this.data = response.data.data;
                 }).then(() => {

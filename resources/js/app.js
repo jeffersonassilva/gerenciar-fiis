@@ -23,9 +23,11 @@ window.Vue = require('vue');
 Vue.component('menu-component', require('./components/MenuComponent.vue').default);
 
 import VueRouter from 'vue-router';
+
 Vue.use(VueRouter);
 
 import Vuetify from 'vuetify';
+
 Vue.use(Vuetify);
 
 const routes = [
@@ -48,6 +50,13 @@ const routes = [
         component: () => import('./views/fiis/Fiis'),
         meta: {
             title: 'Fiis',
+        }
+    },
+    {
+        path: '/cotas',
+        component: () => import('./views/cotas/Cotas'),
+        meta: {
+            title: 'Cotas',
         }
     },
 ];
