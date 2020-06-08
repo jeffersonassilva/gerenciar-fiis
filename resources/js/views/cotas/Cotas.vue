@@ -5,9 +5,9 @@
         <v-data-table
                 :headers="headers"
                 :items="data.data"
+                :items-per-page="data.per_page"
                 :hide-default-footer=true
                 class="elevation-1"
-                :items-per-page="data.per_page"
         ></v-data-table>
 
         <div class="text-center mt-5">
@@ -15,6 +15,7 @@
                     v-model="data.current_page"
                     :length="data.last_page"
                     :circle=true
+                    :total-visible="7"
                     color="primary"
                     @input="onPageChange"
             ></v-pagination>

@@ -11,6 +11,7 @@
         <v-data-table
                 :headers="headers"
                 :items="data.data"
+                :items-per-page="data.per_page"
                 :hide-default-footer=true
                 class="elevation-1"
         ></v-data-table>
