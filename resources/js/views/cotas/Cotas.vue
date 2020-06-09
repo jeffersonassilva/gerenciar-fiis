@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <v-card color="grey lighten-4" flat>
-            <v-toolbar color="default" class="elevation-1 mb-4" :dark="false">
+            <v-toolbar color="default" class="elevation-0 mb-4" :dark="false">
                 <v-toolbar-title class="primary--text">Minhas Cotas</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-text-field
@@ -14,7 +14,7 @@
                     <v-icon @click="filtrar">mdi-magnify</v-icon>
                 </v-btn>
                 <v-btn icon>
-                    <v-icon>mdi-plus-circle</v-icon>
+                    <v-icon @click="add">mdi-plus-circle</v-icon>
                 </v-btn>
             </v-toolbar>
         </v-card>
@@ -80,6 +80,9 @@
                 this.timer = setTimeout(() => {
                     this.getAll('?search=fii.co_sigla:' + this.search);
                 }, 800);
+            },
+            add() {
+                this.$router.push('cotas/adicionar');
             }
         }
     }

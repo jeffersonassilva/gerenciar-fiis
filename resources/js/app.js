@@ -23,12 +23,12 @@ window.Vue = require('vue');
 Vue.component('menu-component', require('./components/MenuComponent.vue').default);
 
 import VueRouter from 'vue-router';
-
-Vue.use(VueRouter);
-
 import Vuetify from 'vuetify';
+import VueMask from 'v-mask';
+import money from 'v-money'
 
-Vue.use(Vuetify);
+[VueRouter, Vuetify, VueMask].forEach((x) => Vue.use(x));
+Vue.use(money, {precision: 4});
 
 const routes = [
     {
@@ -57,6 +57,13 @@ const routes = [
         component: () => import('./views/cotas/Cotas'),
         meta: {
             title: 'Cotas',
+        }
+    },
+    {
+        path: '/cotas/adicionar',
+        component: () => import('./views/cotas/Adicionar'),
+        meta: {
+            title: 'Adicionar Nova Cota',
         }
     },
 ];
