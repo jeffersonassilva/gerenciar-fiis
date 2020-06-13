@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class AddForeignKeysToCotasTable
+ * Class AddForeignKeysToDividendosTable
  */
-class AddForeignKeysToCotasTable extends Migration
+class AddForeignKeysToDividendosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,8 +16,8 @@ class AddForeignKeysToCotasTable extends Migration
      */
     public function up()
     {
-        Schema::table('cotas', function (Blueprint $table) {
-            $table->foreign('cd_fii', 'fk_cotas_fiis')
+        Schema::table('dividendos', function (Blueprint $table) {
+            $table->foreign('cd_fii', 'fk_dividendos_fiis')
                 ->references('id')->on('fiis');
         });
     }
@@ -29,8 +29,8 @@ class AddForeignKeysToCotasTable extends Migration
      */
     public function down()
     {
-        Schema::table('cotas', function (Blueprint $table) {
-            $table->dropForeign('fk_cotas_fiis');
+        Schema::table('dividendos', function (Blueprint $table) {
+            $table->dropForeign('fk_dividendos_fiis');
         });
     }
 }
