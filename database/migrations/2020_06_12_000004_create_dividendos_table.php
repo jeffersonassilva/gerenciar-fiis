@@ -18,7 +18,7 @@ class CreateDividendosTable extends Migration
     {
         Schema::create('dividendos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('vl_dividendo');
+            $table->float('vl_dividendo');
             $table->date('dt_pagamento');
             $table->bigInteger('cd_fii')->unsigned()->index();
             $table->timestamps();
