@@ -19,6 +19,9 @@ class AddForeignKeysToCotasTable extends Migration
         Schema::table('cotas', function (Blueprint $table) {
             $table->foreign('cd_fii', 'fk_cotas_fiis')
                 ->references('id')->on('fiis');
+
+            $table->foreign('cd_usuario', 'fk_cotas_usuarios')
+                ->references('id')->on('users');
         });
     }
 
@@ -31,6 +34,7 @@ class AddForeignKeysToCotasTable extends Migration
     {
         Schema::table('cotas', function (Blueprint $table) {
             $table->dropForeign('fk_cotas_fiis');
+            $table->dropForeign('fk_cotas_usuarios');
         });
     }
 }

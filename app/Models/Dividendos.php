@@ -12,6 +12,7 @@ class Dividendos extends AbstractModel
 {
     const VL_DIVIDENDO = 'vl_dividendo';
     const DT_PAGAMENTO = 'dt_pagamento';
+    const DT_FECHAMENTO = 'dt_fechamento';
 
     /**
      * @var string
@@ -24,6 +25,13 @@ class Dividendos extends AbstractModel
     protected $primaryKey = 'id';
 
     /**
+     * @var array
+     */
+    protected $appends = [
+        'vl_unitario_dividendo',
+    ];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function fii()
@@ -32,28 +40,58 @@ class Dividendos extends AbstractModel
     }
 
     /**
-     * @param $value
+     * @param $vlDividendo
      */
-    public function setVlDividendoAttribute($value)
+    public function setVlDividendoAttribute($vlDividendo)
     {
-        $value = preg_replace('/[^0-9]/', '', $value);
-        $this->attributes[self::VL_DIVIDENDO] = substr_replace($value, '.', -2, 0);
+        $vlDividendo = preg_replace('/[^0-9]/', '', $vlDividendo);
+        $this->attributes[self::VL_DIVIDENDO] = substr_replace($vlDividendo, '.', -2, 0);
     }
 
     /**
-     * @param $value
+     * @param $dtPagamento
      * @return string
      */
-    public function getDtPagamentoAttribute($value)
+    public function getDtPagamentoAttribute($dtPagamento)
     {
-        return Carbon::parse($value)->format('d/m/Y');
+        return Carbon::parse($dtPagamento)->format('d/m/Y');
     }
 
     /**
-     * @param $value
+     * @param $dtPagamento
      */
-    public function setDtPagamentoAttribute($value)
+    public function setDtPagamentoAttribute($dtPagamento)
     {
-        $this->attributes[self::DT_PAGAMENTO] = Carbon::createFromFormat('d/m/Y', $value)->toDateTimeString();
+        $this->attributes[self::DT_PAGAMENTO] = Carbon::createFromFormat('d/m/Y', $dtPagamento)->toDateTimeString();
+    }
+
+    /**
+     * @param $dtFechamento
+     * @return string
+     */
+    public function getDtFechamentoAttribute($dtFechamento)
+    {
+        return Carbon::parse($dtFechamento)->format('d/m/Y');
+    }
+
+    /**
+     * @param $dtFechamento
+     */
+    public function setDtFechamentoAttribute($dtFechamento)
+    {
+        $this->attributes[self::DT_FECHAMENTO] = Carbon::createFromFormat('d/m/Y', $dtFechamento)->toDateTimeString();
+    }
+
+    /**
+     * @return string
+     */
+    public function getVlUnitarioDividendoAttribute()
+    {
+        return 'R$ ' . number_format(
+                $this->getAttribute(self::VL_DIVIDENDO),
+                '2',
+                ',',
+                '.'
+            );
     }
 }

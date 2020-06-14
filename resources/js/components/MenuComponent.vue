@@ -4,9 +4,10 @@
             <div class="card-header">Menu</div>
             <div class="card-body">
                 <ul>
-                    <li><router-link to="/usuarios">Usuários</router-link></li>
-                    <li><router-link to="/fiis">Fiis</router-link></li>
-                    <li><router-link to="/cotas">Cotas</router-link></li>
+                    <li><router-link to="/usuarios">Usuários (s)</router-link></li>
+                    <li><router-link to="/fiis">Fiis (s)</router-link></li>
+                    <li><router-link to="/dividendos">Dividendos (s)</router-link></li>
+                    <li><router-link to="/cotas">Cotas (u)</router-link></li>
                 </ul>
             </div>
         </div>

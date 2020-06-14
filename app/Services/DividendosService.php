@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Criteria\OrderByDtPagamentoCriteria;
 use App\Repositories\DividendosRepository;
 
 /**
@@ -22,5 +23,18 @@ class DividendosService extends AbstractService
     public function __construct(DividendosRepository $repository)
     {
         $this->repository = $repository;
+    }
+
+    /**
+     * @return mixed
+     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     */
+    public function all()
+    {
+        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        $this->repository->pushCriteria(app(OrderByDtPagamentoCriteria::class));
+        $data = $this->repository->with($this->repository->relationships);
+
+        return request()->pagination == 'false' ? $data->all() : $data->paginate();
     }
 }

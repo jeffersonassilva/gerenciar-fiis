@@ -2,37 +2,36 @@
     <div class="container">
         <v-card color="grey lighten-4" flat>
             <v-toolbar color="default" class="elevation-0 mb-4" :dark="false">
-                <v-toolbar-title class="primary--text">Adicionar Cota</v-toolbar-title>
+                <v-toolbar-title class="primary--text">Adicionar Dividendo</v-toolbar-title>
             </v-toolbar>
         </v-card>
         <ValidationObserver ref="observer" v-slot="{ validate, reset }">
             <form>
-                <ValidationProvider v-slot="{ errors }" name="Quantidade de cotas" rules="required|max:10">
+                <ValidationProvider v-slot="{ errors }" name="Valor do dividendo" rules="required">
                     <v-text-field
-                            v-model="form.nr_cotas"
-                            v-mask="'#####'"
-                            :counter="5"
-                            :error-messages="errors"
-                            label="Quantidade de cotas"
-                            required
-                    ></v-text-field>
-                </ValidationProvider>
-                <ValidationProvider v-slot="{ errors }" name="Valor por cota" rules="required">
-                    <v-text-field
-                            v-model.lazy="form.vl_cota"
+                            v-model.lazy="form.vl_dividendo"
                             v-money="money"
                             maxlength="13"
                             :error-messages="errors"
-                            label="Valor por cota"
+                            label="Valor do dividendo"
                             required
                     ></v-text-field>
                 </ValidationProvider>
-                <ValidationProvider v-slot="{ errors }" name="Data da compra" rules="required">
+                <ValidationProvider v-slot="{ errors }" name="Data do pagamento" rules="required">
                     <v-text-field
-                            v-model="form.dt_compra"
+                            v-model="form.dt_pagamento"
                             v-mask="'##/##/####'"
                             :error-messages="errors"
-                            label="Data da compra"
+                            label="Data do pagamento"
+                            required
+                    ></v-text-field>
+                </ValidationProvider>
+                <ValidationProvider v-slot="{ errors }" name="Data do fechamento" rules="required">
+                    <v-text-field
+                            v-model="form.dt_fechamento"
+                            v-mask="'##/##/####'"
+                            :error-messages="errors"
+                            label="Data do fechamento"
                             required
                     ></v-text-field>
                 </ValidationProvider>
@@ -49,15 +48,15 @@
                             required
                     ></v-select>
                 </ValidationProvider>
-                <ValidationProvider v-slot="{ errors, valid }" name="Indicador de subscrição">
-                    <v-checkbox
-                            v-model="form.ic_subscricao"
-                            :error-messages="errors"
-                            value="1"
-                            label="É subscrição?"
-                            type="checkbox"
-                    ></v-checkbox>
-                </ValidationProvider>
+                <!--<ValidationProvider v-slot="{ errors, valid }" name="Indicador de pagamento">-->
+                    <!--<v-checkbox-->
+                            <!--v-model="form.ic_subscricao"-->
+                            <!--:error-messages="errors"-->
+                            <!--value="1"-->
+                            <!--label="É subscrição?"-->
+                            <!--type="checkbox"-->
+                    <!--&gt;</v-checkbox>-->
+                <!--</ValidationProvider>-->
 
                 <v-btn class="mr-4 primary" @click="submit">Salvar</v-btn>
                 <v-btn class="mr-4" @click="clear">Limpar</v-btn>
@@ -114,11 +113,11 @@
             },
             setDataForm() {
                 this.form = {
-                    nr_cotas: null,
-                    vl_cota: null,
-                    dt_compra: null,
+                    vl_dividendo: null,
+                    dt_pagamento: null,
+                    dt_fechamento: null,
+                    // ic_pagamento: 0,
                     cd_fii: null,
-                    ic_subscricao: 0,
                 };
             },
             submit() {
@@ -133,13 +132,12 @@
                 this.$refs.observer.reset()
             },
             adicionar() {
-                this.form.cd_usuario = this.$userId;
-                axios.post('/api/cotas', this.form).then(response => {
-                    this.$router.push('/cotas');
+                axios.post('/api/dividendos', this.form).then(response => {
+                    this.$router.push('/dividendos');
                 });
             },
             cancelar() {
-                this.$router.push('/cotas');
+                this.$router.push('/dividendos');
             }
         },
     }

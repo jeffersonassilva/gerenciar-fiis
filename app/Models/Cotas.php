@@ -43,29 +43,29 @@ class Cotas extends AbstractModel
     }
 
     /**
-     * @param $value
+     * @param $vlCota
      */
-    public function setVlCotaAttribute($value)
+    public function setVlCotaAttribute($vlCota)
     {
-        $value = preg_replace('/[^0-9]/', '', $value);
-        $this->attributes[self::VL_COTA] = substr_replace($value, '.', -2, 0);
+        $vlCota = preg_replace('/[^0-9]/', '', $vlCota);
+        $this->attributes[self::VL_COTA] = substr_replace($vlCota, '.', -2, 0);
     }
 
     /**
-     * @param $value
+     * @param $dtCompra
      * @return string
      */
-    public function getDtCompraAttribute($value)
+    public function getDtCompraAttribute($dtCompra)
     {
-        return Carbon::parse($value)->format('d/m/Y');
+        return Carbon::parse($dtCompra)->format('d/m/Y');
     }
 
     /**
-     * @param $value
+     * @param $dtCompra
      */
-    public function setDtCompraAttribute($value)
+    public function setDtCompraAttribute($dtCompra)
     {
-        $this->attributes[self::DT_COMPRA] = Carbon::createFromFormat('d/m/Y', $value)->toDateTimeString();
+        $this->attributes[self::DT_COMPRA] = Carbon::createFromFormat('d/m/Y', $dtCompra)->toDateTimeString();
     }
 
     /**

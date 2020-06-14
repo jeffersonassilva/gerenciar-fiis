@@ -2038,6 +2038,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {}
 });
@@ -38130,7 +38131,7 @@ var render = function() {
             "li",
             [
               _c("router-link", { attrs: { to: "/usuarios" } }, [
-                _vm._v("Usuários")
+                _vm._v("Usuários (s)")
               ])
             ],
             1
@@ -38138,13 +38139,31 @@ var render = function() {
           _vm._v(" "),
           _c(
             "li",
-            [_c("router-link", { attrs: { to: "/fiis" } }, [_vm._v("Fiis")])],
+            [
+              _c("router-link", { attrs: { to: "/fiis" } }, [
+                _vm._v("Fiis (s)")
+              ])
+            ],
             1
           ),
           _vm._v(" "),
           _c(
             "li",
-            [_c("router-link", { attrs: { to: "/cotas" } }, [_vm._v("Cotas")])],
+            [
+              _c("router-link", { attrs: { to: "/dividendos" } }, [
+                _vm._v("Dividendos (s)")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: "/cotas" } }, [
+                _vm._v("Cotas (u)")
+              ])
+            ],
             1
           )
         ])
@@ -95209,6 +95228,7 @@ Vue.component('menu-component', __webpack_require__(/*! ./components/MenuCompone
 Vue.use(v_money__WEBPACK_IMPORTED_MODULE_3___default.a, {
   precision: 4
 });
+Vue.prototype.$userId = document.querySelector("meta[name='us-id']").getAttribute('content');
 var routes = [{
   path: '',
   component: function component() {
@@ -95248,6 +95268,22 @@ var routes = [{
   },
   meta: {
     title: 'Adicionar Nova Cota'
+  }
+}, {
+  path: '/dividendos',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/dividendos/Dividendos */ "./resources/js/views/dividendos/Dividendos.vue"));
+  },
+  meta: {
+    title: 'Dividendos'
+  }
+}, {
+  path: '/dividendos/adicionar',
+  component: function component() {
+    return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/dividendos/Adicionar */ "./resources/js/views/dividendos/Adicionar.vue"));
+  },
+  meta: {
+    title: 'Adicionar Novo Dividendo'
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
