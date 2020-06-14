@@ -17,12 +17,27 @@ class CreateCotasTable extends Migration
     public function up()
     {
         Schema::create('cotas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('nr_cotas');
-            $table->float('vl_cota');
-            $table->date('dt_compra');
-            $table->integer('ic_subscricao')->default(0);
-            $table->bigInteger('cd_fii')->unsigned()->index();
+            $table->bigIncrements('id')
+                ->comment('Chave primária da tabela.');
+
+            $table->integer('nr_cotas')
+                ->comment('Número de cotas.');
+
+            $table->float('vl_cota')
+                ->comment('Valor individual da cota.');
+
+            $table->date('dt_compra')
+                ->comment('Data da compra da cota.');
+
+            $table->integer('ic_subscricao')->default(0)
+                ->comment('Indicador de subscrição da cota.');
+
+            $table->bigInteger('cd_fii')->unsigned()->index()
+                ->comment('Código do FII.');
+
+            $table->bigInteger('cd_usuario')->unsigned()->index()
+                ->comment('Código do usuário.');
+
             $table->timestamps();
             $table->softDeletes();
         });

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Criteria\FilterByUserCriteria;
 use App\Criteria\OrderByDtCompraCriteria;
 use App\Repositories\CotasRepository;
 
@@ -33,6 +34,7 @@ class CotasService extends AbstractService
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $this->repository->pushCriteria(app(OrderByDtCompraCriteria::class));
+        $this->repository->pushCriteria(app(FilterByUserCriteria::class));
         $data = $this->repository->with($this->repository->relationships);
 
         return request()->pagination == 'false' ? $data->all() : $data->paginate();

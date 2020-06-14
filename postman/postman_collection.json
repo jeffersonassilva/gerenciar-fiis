@@ -41,17 +41,15 @@
 					"name": "fiis",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"sigla\": \"KNCR11\"\n}"
+							"raw": "{\n\t\"co_sigla\": \"KNCR11\",\n\t\"ds_alvo\": \"Geral\",\n\t\"ds_tipo\": \"Fundo de Fundos\",\n\t\"ds_administrador\": \"HEDGE\",\n\t\"vl_ultimo_rendimento\": 1.20,\n\t\"dt_pagamento\": \"2020-06-12\",\n\t\"nr_cotistas\": 1000,\n\t\"vl_patrimonio\": 1000000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/fiis",
@@ -75,17 +73,15 @@
 					"name": "fiis",
 					"request": {
 						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"sigla\": \"HFOF12\"\n}"
+							"raw": "{\n\t\"co_sigla\": \"KNCR11\",\n\t\"ds_alvo\": \"Geral\",\n\t\"ds_tipo\": \"Fundo de Fundos\",\n\t\"ds_administrador\": \"HEDGE\",\n\t\"vl_ultimo_rendimento\": 1.20,\n\t\"dt_pagamento\": \"2020-06-12\",\n\t\"nr_cotistas\": 1000,\n\t\"vl_patrimonio\": 1000000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/fiis/1",
@@ -178,17 +174,15 @@
 					"name": "cotas",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nr_cotas\": 5,\n\t\"vl_cota\": 102.41,\n\t\"dt_compra\": \"2020-06-06\",\n\t\"cd_fii\": 87,\n\t\"ic_subscricao\": 0\n}"
+							"raw": "{\n\t\"nr_cotas\": 5,\n\t\"vl_cota\": \"R$ 1.382,41\",\n\t\"dt_compra\": \"09/06/2020\",\n\t\"cd_fii\": 87,\n\t\"ic_subscricao\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/cotas",
@@ -212,17 +206,15 @@
 					"name": "cotas",
 					"request": {
 						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nr_cotas\": 7,\n\t\"vl_cota\": \"120.00\",\n    \"dt_compra\": \"2020-06-06\",\n    \"cd_fii\": 200,\n    \"ic_subscricao\": 0\n}"
+							"raw": "{\n\t\"nr_cotas\": 7,\n\t\"vl_cota\": \"R$ 1.234,12\",\n\t\"dt_compra\": \"09/06/2020\",\n    \"cd_fii\": 200,\n    \"ic_subscricao\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/cotas/1",
@@ -249,7 +241,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/cotas/2",
+							"raw": "http://127.0.0.1:8000/api/cotas/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -261,7 +253,137 @@
 							"path": [
 								"api",
 								"cotas",
-								"2"
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Dividendos",
+			"item": [
+				{
+					"name": "dividendos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dividendos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dividendos"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "cd_fii:164;fii.co_sigla:RBRF",
+									"disabled": true
+								},
+								{
+									"key": "searchJoin",
+									"value": "and",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dividendos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"vl_dividendo\": \"R$ 1,41\",\n\t\"dt_pagamento\": \"12/06/2020\",\n\t\"ic_pagamento\": \"1\",\n\t\"cd_fii\": 164\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dividendos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dividendos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dividendos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"vl_dividendo\": \"R$ 1,32\",\n\t\"dt_pagamento\": \"12/06/2020\",\n\t\"cd_fii\": 164\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dividendos/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dividendos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dividendos",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/dividendos/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"dividendos",
+								"1"
 							]
 						}
 					},
@@ -278,7 +400,14 @@
 				"id": "edd93038-ab8c-43d2-9bee-dfc42619c840",
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.request.headers.add({",
+					"  key: 'Accept',",
+					"  value: 'application/json'",
+					"});",
+					"pm.request.headers.add({",
+					"  key: 'Content-Type',",
+					"  value: 'application/json'",
+					"});"
 				]
 			}
 		},

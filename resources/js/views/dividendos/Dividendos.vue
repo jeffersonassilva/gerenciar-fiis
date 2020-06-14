@@ -2,7 +2,7 @@
     <div class="container">
         <v-card color="grey lighten-4" flat>
             <v-toolbar color="default" class="elevation-0 mb-4" :dark="false">
-                <v-toolbar-title class="primary--text">Minhas Cotas</v-toolbar-title>
+                <v-toolbar-title class="primary--text">Dividendos</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-text-field
                         hide-details
@@ -49,11 +49,9 @@
                 data: [],
                 search: '',
                 headers: [
-                    {text: 'Sigla', value: 'ds_sigla', sortable: false},
-                    {text: 'Quantidade', value: 'nr_cotas', sortable: false},
-                    {text: 'Valor Unitário', value: 'vl_unitario_cota', sortable: false},
-                    {text: 'Valor Investido', value: 'vl_investido', sortable: false},
-                    {text: 'Dt. Compra', value: 'dt_compra', sortable: false},
+                    {text: 'Sigla', value: 'fii.co_sigla', sortable: false},
+                    {text: 'Valor Dividendo', value: 'vl_unitario_dividendo', sortable: false},
+                    {text: 'Dt. Pagamento', value: 'dt_pagamento', sortable: false},
                 ],
             }
         },
@@ -62,9 +60,7 @@
         },
         methods: {
             getAll(filtro = '') {
-                axios.get('/api/cotas' + filtro, {
-                    headers: {'User-Id': this.$userId}
-                }).then(response => {
+                axios.get('/api/dividendos' + filtro).then(response => {
                     this.pagination = response.data.data;
                     this.data = response.data.data;
                 }).then(() => {
@@ -84,7 +80,7 @@
                 }, 800);
             },
             add() {
-                this.$router.push('cotas/adicionar');
+                this.$router.push('dividendos/adicionar');
             }
         }
     }

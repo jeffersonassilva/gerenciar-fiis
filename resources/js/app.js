@@ -29,6 +29,7 @@ import money from 'v-money'
 
 [VueRouter, Vuetify, VueMask].forEach((x) => Vue.use(x));
 Vue.use(money, {precision: 4});
+Vue.prototype.$userId = document.querySelector("meta[name='us-id']").getAttribute('content');
 
 const routes = [
     {
@@ -64,6 +65,20 @@ const routes = [
         component: () => import('./views/cotas/Adicionar'),
         meta: {
             title: 'Adicionar Nova Cota',
+        }
+    },
+    {
+        path: '/dividendos',
+        component: () => import('./views/dividendos/Dividendos'),
+        meta: {
+            title: 'Dividendos',
+        }
+    },
+    {
+        path: '/dividendos/adicionar',
+        component: () => import('./views/dividendos/Adicionar'),
+        meta: {
+            title: 'Adicionar Novo Dividendo',
         }
     },
 ];

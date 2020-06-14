@@ -29,6 +29,7 @@ class CotasRequest extends FormRequest
             'dt_compra' => 'required',
             'ic_subscricao' => 'required',
             'cd_fii' => 'required',
+            'cd_usuario' => 'required',
         ];
     }
 
@@ -43,6 +44,7 @@ class CotasRequest extends FormRequest
             'dt_compra' => 'Data da compra',
             'ic_subscricao' => 'Indicador de subscrição',
             'cd_fii' => 'Código do Fii',
+            'cd_usuario' => 'Código do usuário',
         ];
     }
 }
