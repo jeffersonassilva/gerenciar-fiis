@@ -9,3 +9,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('fiis', 'FiisController');
 Route::resource('cotas', 'CotasController');
 Route::resource('dividendos', 'DividendosController');
+Route::get('recebiveis', 'RendimentosController@recebiveis');
