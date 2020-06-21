@@ -12,7 +12,25 @@
                 :hide-default-footer=true
                 :disable-pagination=true
                 class="elevation-1"
-        ></v-data-table>
+                @click:row="handleClick"
+        >
+            <template v-slot:item="row">
+                <tr>
+                    <td>{{row.item.co_sigla}}</td>
+                    <td>{{row.item.dt_pagamento}}</td>
+                    <td>{{row.item.nr_cotas}}</td>
+                    <td>{{row.item.vl_recebido}}</td>
+                    <td align="center">
+                        <v-btn class="mx-2" fab outlined x-small color="teal" @click="confirmar(row.item)">
+                            <v-icon dark>mdi-check</v-icon>
+                        </v-btn>
+                        <v-btn class="mx-2" fab outlined x-small color="error" @click="recusar(row.item)">
+                            <v-icon dark>mdi-close</v-icon>
+                        </v-btn>
+                    </td>
+                </tr>
+            </template>
+        </v-data-table>
     </div>
 </template>
 
@@ -27,6 +45,7 @@
                     {text: 'Dt. Pagamento', value: 'dt_pagamento', sortable: false},
                     {text: 'Nº de Cotas', value: 'nr_cotas', sortable: false},
                     {text: 'Vl. a Receber', value: 'vl_recebido', sortable: false},
+                    {text: 'Ações', value: '', sortable: false, 'align': 'center'},
                 ],
             }
         },
@@ -41,7 +60,13 @@
                 }).then(() => {
                     this.visible = true;
                 })
-            }
+            },
+            confirmar(item) {
+                console.log(item);
+            },
+            recusar(item) {
+                console.log(item);
+            },
         }
     }
 </script>
