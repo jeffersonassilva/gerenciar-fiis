@@ -2039,6 +2039,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {}
 });
@@ -38162,6 +38163,16 @@ var render = function() {
             [
               _c("router-link", { attrs: { to: "/cotas" } }, [
                 _vm._v("Cotas (u)")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: "/recebiveis" } }, [
+                _vm._v("Recebíveis (u)")
               ])
             ],
             1
@@ -95198,6 +95209,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_mask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! v-mask */ "./node_modules/v-mask/dist/v-mask.esm.js");
 /* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! v-money */ "./node_modules/v-money/dist/v-money.js");
 /* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(v_money__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -95222,6 +95234,7 @@ Vue.component('menu-component', __webpack_require__(/*! ./components/MenuCompone
 
 
 
+
 [vue_router__WEBPACK_IMPORTED_MODULE_0__["default"], vuetify__WEBPACK_IMPORTED_MODULE_1___default.a, v_mask__WEBPACK_IMPORTED_MODULE_2__["default"]].forEach(function (x) {
   return Vue.use(x);
 });
@@ -95229,67 +95242,6 @@ Vue.use(v_money__WEBPACK_IMPORTED_MODULE_3___default.a, {
   precision: 4
 });
 Vue.prototype.$userId = document.querySelector("meta[name='us-id']").getAttribute('content');
-var routes = [{
-  path: '',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/dashboard/Dashboard */ "./resources/js/views/dashboard/Dashboard.vue"));
-  },
-  meta: {
-    title: 'Dashboard'
-  }
-}, {
-  path: '/usuarios',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/usuarios/Usuarios */ "./resources/js/views/usuarios/Usuarios.vue"));
-  },
-  meta: {
-    title: 'Usuários'
-  }
-}, {
-  path: '/fiis',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/fiis/Fiis */ "./resources/js/views/fiis/Fiis.vue"));
-  },
-  meta: {
-    title: 'Fiis'
-  }
-}, {
-  path: '/cotas',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/cotas/Cotas */ "./resources/js/views/cotas/Cotas.vue"));
-  },
-  meta: {
-    title: 'Cotas'
-  }
-}, {
-  path: '/cotas/adicionar',
-  component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ./views/cotas/Adicionar */ "./resources/js/views/cotas/Adicionar.vue"));
-  },
-  meta: {
-    title: 'Adicionar Nova Cota'
-  }
-}, {
-  path: '/dividendos',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/dividendos/Dividendos */ "./resources/js/views/dividendos/Dividendos.vue"));
-  },
-  meta: {
-    title: 'Dividendos'
-  }
-}, {
-  path: '/dividendos/adicionar',
-  component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/dividendos/Adicionar */ "./resources/js/views/dividendos/Adicionar.vue"));
-  },
-  meta: {
-    title: 'Adicionar Novo Dividendo'
-  }
-}];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  routes: routes // short for `routes: routes`
-
-});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -95297,7 +95249,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
  */
 
 var app = new Vue({
-  router: router,
+  router: _routes__WEBPACK_IMPORTED_MODULE_4__["default"],
   el: '#app',
   vuetify: new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a({
     theme: {
@@ -95429,6 +95381,82 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MenuComponent_vue_vue_type_template_id_98f701fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/routes.js":
+/*!********************************!*\
+  !*** ./resources/js/routes.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+
+var routes = [{
+  path: '',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/dashboard/Dashboard */ "./resources/js/views/dashboard/Dashboard.vue"));
+  },
+  meta: {
+    title: 'Dashboard'
+  }
+}, {
+  path: '/usuarios',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/usuarios/Usuarios */ "./resources/js/views/usuarios/Usuarios.vue"));
+  },
+  meta: {
+    title: 'Usuários'
+  }
+}, {
+  path: '/fiis',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/fiis/Fiis */ "./resources/js/views/fiis/Fiis.vue"));
+  },
+  meta: {
+    title: 'Fiis'
+  }
+}, {
+  path: '/cotas',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/cotas/Cotas */ "./resources/js/views/cotas/Cotas.vue"));
+  },
+  meta: {
+    title: 'Cotas'
+  }
+}, {
+  path: '/cotas/adicionar',
+  component: function component() {
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./views/cotas/Adicionar */ "./resources/js/views/cotas/Adicionar.vue"));
+  },
+  meta: {
+    title: 'Adicionar Nova Cota'
+  }
+}, {
+  path: '/dividendos',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/dividendos/Dividendos */ "./resources/js/views/dividendos/Dividendos.vue"));
+  },
+  meta: {
+    title: 'Dividendos'
+  }
+}, {
+  path: '/dividendos/adicionar',
+  component: function component() {
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./views/dividendos/Adicionar */ "./resources/js/views/dividendos/Adicionar.vue"));
+  },
+  meta: {
+    title: 'Adicionar Novo Dividendo'
+  }
+}];
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  routes: routes // short for `routes: routes`
+
+});
+/* harmony default export */ __webpack_exports__["default"] = (router);
 
 /***/ }),
 

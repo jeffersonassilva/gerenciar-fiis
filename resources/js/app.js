@@ -25,67 +25,12 @@ Vue.component('menu-component', require('./components/MenuComponent.vue').defaul
 import VueRouter from 'vue-router';
 import Vuetify from 'vuetify';
 import VueMask from 'v-mask';
-import money from 'v-money'
+import money from 'v-money';
+import router from './routes';
 
 [VueRouter, Vuetify, VueMask].forEach((x) => Vue.use(x));
 Vue.use(money, {precision: 4});
 Vue.prototype.$userId = document.querySelector("meta[name='us-id']").getAttribute('content');
-
-const routes = [
-    {
-        path: '',
-        component: () => import('./views/dashboard/Dashboard'),
-        meta: {
-            title: 'Dashboard',
-        }
-    },
-    {
-        path: '/usuarios',
-        component: () => import('./views/usuarios/Usuarios'),
-        meta: {
-            title: 'Usuários',
-        }
-    },
-    {
-        path: '/fiis',
-        component: () => import('./views/fiis/Fiis'),
-        meta: {
-            title: 'Fiis',
-        }
-    },
-    {
-        path: '/cotas',
-        component: () => import('./views/cotas/Cotas'),
-        meta: {
-            title: 'Cotas',
-        }
-    },
-    {
-        path: '/cotas/adicionar',
-        component: () => import('./views/cotas/Adicionar'),
-        meta: {
-            title: 'Adicionar Nova Cota',
-        }
-    },
-    {
-        path: '/dividendos',
-        component: () => import('./views/dividendos/Dividendos'),
-        meta: {
-            title: 'Dividendos',
-        }
-    },
-    {
-        path: '/dividendos/adicionar',
-        component: () => import('./views/dividendos/Adicionar'),
-        meta: {
-            title: 'Adicionar Novo Dividendo',
-        }
-    },
-];
-
-const router = new VueRouter({
-    routes // short for `routes: routes`
-});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
