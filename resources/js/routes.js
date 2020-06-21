@@ -50,6 +50,13 @@ const routes = [
             title: 'Adicionar Novo Dividendo',
         }
     },
+    {
+        path: '/recebiveis',
+        component: () => import('./views/dividendos/Recebiveis'),
+        meta: {
+            title: 'Recebíveis',
+        }
+    },
 ];
 
 const router = new VueRouter({

@@ -95451,6 +95451,14 @@ var routes = [{
   meta: {
     title: 'Adicionar Novo Dividendo'
   }
+}, {
+  path: '/recebiveis',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/dividendos/Recebiveis */ "./resources/js/views/dividendos/Recebiveis.vue"));
+  },
+  meta: {
+    title: 'Recebíveis'
+  }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes // short for `routes: routes`

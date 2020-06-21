@@ -45,7 +45,7 @@ class DividendosService extends AbstractService
     public function recebiveis()
     {
         return DB::table('dividendos')
-            ->select('fiis.co_sigla', 'fiis.id', 'dividendos.dt_pagamento', (
+            ->select('fiis.co_sigla', 'fiis.id', 'dividendos.id AS id_pagamento', 'dividendos.dt_pagamento', (
                 DB::raw("(
                     SELECT sum(cotas.nr_cotas)
                     FROM cotas
