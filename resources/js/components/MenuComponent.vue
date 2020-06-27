@@ -9,6 +9,7 @@
                     <li><router-link to="/dividendos">Dividendos (s)</router-link></li>
                     <li><router-link to="/cotas">Cotas (u)</router-link></li>
                     <li><router-link to="/recebiveis">Recebíveis (u)</router-link></li>
+                    <li><router-link to="/rendimentos">Rendimentos (u)</router-link></li>
                 </ul>
             </div>
         </div>
