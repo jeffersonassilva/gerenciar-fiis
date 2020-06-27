@@ -2041,6 +2041,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {}
 });
@@ -38129,6 +38130,16 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c("ul", [
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: "/" } }, [
+                _vm._v("Dashboard (u)")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
           _c(
             "li",
             [
