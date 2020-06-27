@@ -2040,6 +2040,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {}
 });
@@ -38173,6 +38174,16 @@ var render = function() {
             [
               _c("router-link", { attrs: { to: "/recebiveis" } }, [
                 _vm._v("Recebíveis (u)")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: "/rendimentos" } }, [
+                _vm._v("Rendimentos (u)")
               ])
             ],
             1
@@ -95458,6 +95469,14 @@ var routes = [{
   },
   meta: {
     title: 'Recebíveis'
+  }
+}, {
+  path: '/rendimentos',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/rendimentos/Rendimentos */ "./resources/js/views/rendimentos/Rendimentos.vue"));
+  },
+  meta: {
+    title: 'Rendimentos'
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({

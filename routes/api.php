@@ -10,3 +10,4 @@ Route::resource('fiis', 'FiisController');
 Route::resource('cotas', 'CotasController');
 Route::resource('dividendos', 'DividendosController');
 Route::get('recebiveis', 'RendimentosController@recebiveis');
+Route::resource('rendimentos', 'RendimentosController');

@@ -45,21 +45,28 @@ class DividendosService extends AbstractService
     public function recebiveis()
     {
         return DB::table('dividendos')
-            ->select('fiis.co_sigla', 'fiis.id', 'dividendos.id AS id_pagamento', 'dividendos.dt_pagamento', (
+            ->select('rendimentos.id as id_rendimento', 'fiis.co_sigla', 'fiis.id as cd_fii', 'dividendos.id AS id_pagamento',
+                DB::raw('DATE_FORMAT(dividendos.dt_pagamento, "%d/%m/%Y") AS dt_pagamento'),
                 DB::raw("(
                     SELECT sum(cotas.nr_cotas)
                     FROM cotas
                     WHERE cotas.cd_fii = dividendos.cd_fii
                     AND cotas.dt_compra <= dividendos.dt_fechamento
-                    ) AS nr_cotas")
-            ), DB::raw("(
-                    SELECT sum(cotas.nr_cotas) * dividendos.vl_dividendo
+                    ) AS nr_cotas"
+                ),
+                DB::raw("(
+                    SELECT format(sum(cotas.nr_cotas) * dividendos.vl_dividendo, 2, 'de_DE')
                     FROM cotas
                     WHERE cotas.cd_fii = dividendos.cd_fii
                     AND cotas.dt_compra <= dividendos.dt_fechamento
-                    ) AS vl_recebido")
+                    ) AS vl_recebido"
+                )
             )
             ->join('fiis', 'fiis.id', '=', 'dividendos.cd_fii')
+            ->leftJoin('rendimentos as rendimentos', function ($join) {
+                $join->on(['rendimentos.cd_fii' => 'fiis.id', 'rendimentos.dt_pagamento' => 'dividendos.dt_pagamento']);
+            })
+            ->whereNull('rendimentos.id')
             ->orderBy('dividendos.dt_pagamento', 'asc')
             ->get();
     }

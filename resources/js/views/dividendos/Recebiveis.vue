@@ -12,21 +12,20 @@
                 :hide-default-footer=true
                 :disable-pagination=true
                 class="elevation-1"
-                @click:row="handleClick"
         >
             <template v-slot:item="row">
                 <tr>
                     <td>{{row.item.co_sigla}}</td>
                     <td>{{row.item.dt_pagamento}}</td>
                     <td>{{row.item.nr_cotas}}</td>
-                    <td>{{row.item.vl_recebido}}</td>
+                    <td>R$ {{row.item.vl_recebido}}</td>
                     <td align="center">
                         <v-btn class="mx-2" fab outlined x-small color="teal" @click="confirmar(row.item)">
                             <v-icon dark>mdi-check</v-icon>
                         </v-btn>
-                        <v-btn class="mx-2" fab outlined x-small color="error" @click="recusar(row.item)">
-                            <v-icon dark>mdi-close</v-icon>
-                        </v-btn>
+                        <!--<v-btn class="mx-2" fab outlined x-small color="error" @click="recusar(row.item)">-->
+                            <!--<v-icon dark>mdi-close</v-icon>-->
+                        <!--</v-btn>-->
                     </td>
                 </tr>
             </template>
@@ -61,12 +60,22 @@
                     this.visible = true;
                 })
             },
+            addRendimento(item) {
+                axios.post('/api/rendimentos', item).then(response => {
+                    // response = response.data.data;
+                    console.log(response);
+                }).then(() => {
+                    this.getAll();
+                })
+            },
             confirmar(item) {
-                console.log(item);
+                item.cd_usuario = this.$userId;
+                // delete(item['co_sigla']);
+                this.addRendimento(item);
             },
-            recusar(item) {
-                console.log(item);
-            },
+            // recusar(item) {
+            //     console.log(item);
+            // },
         }
     }
 </script>

@@ -57,6 +57,13 @@ const routes = [
             title: 'Recebíveis',
         }
     },
+    {
+        path: '/rendimentos',
+        component: () => import('./views/rendimentos/Rendimentos'),
+        meta: {
+            title: 'Rendimentos',
+        }
+    },
 ];
 
 const router = new VueRouter({

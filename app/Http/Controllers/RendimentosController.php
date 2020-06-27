@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dividendos;
+use App\Http\Requests\RendimentosRequest;
+use App\Models\Rendimentos;
 use App\Services\DividendosService;
+use App\Services\RendimentosService;
 use Illuminate\Http\Response;
 
 /**
@@ -13,18 +15,46 @@ use Illuminate\Http\Response;
 class RendimentosController extends AbstractController
 {
     /**
+     * @var RendimentosService
+     */
+    protected $service;
+
+    /**
      * @var DividendosService
      */
     protected $dividendoService;
 
     /**
      * RendimentosController constructor.
+     * @param RendimentosService $service
      * @param DividendosService $dividendosService
      */
-    public function __construct(DividendosService $dividendosService)
+    public function __construct(RendimentosService $service, DividendosService $dividendosService)
     {
+        $this->service = $service;
         $this->dividendoService = $dividendosService;
-        $this->model = Dividendos::class;
+        $this->model = Rendimentos::class;
+    }
+
+    /**
+     * @param RendimentosRequest $request
+     * @return mixed
+     * @throws \Prettus\Validator\Exceptions\ValidatorException
+     */
+    public function store(RendimentosRequest $request)
+    {
+        $data = $this->service->store($request);
+        return Response::custom('messages.created', $data, 201);
+    }
+
+    /**
+     * @param RendimentosRequest $request
+     * @param $id
+     * @return mixed
+     */
+    public function update(RendimentosRequest $request, $id)
+    {
+        return parent::updateAs($request, $id);
     }
 
     /**
