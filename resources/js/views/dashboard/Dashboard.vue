@@ -6,10 +6,7 @@
             </div>
 
             <div class="col-md-4" v-for="item in this.data">
-                <v-card
-                        class="mx-auto my-12 elevation-1"
-                        max-width="374"
-                >
+                <v-card class="mx-auto my-1 elevation-1">
                     <v-list-item two-line>
                         <v-list-item-content>
                             <v-list-item-title class="headline">{{ item.sigla }}</v-list-item-title>
@@ -18,8 +15,11 @@
                     </v-list-item>
 
                     <v-card-text>
-                        <div class="subtitle-1">
-                            {{ formatarDinheiro(item.valor) }}
+                        <div class="subtitle-3">
+                            Vl. Investido: <span class="primary--text">{{ formatarDinheiro(item.vl_investido) }}</span>
+                        </div>
+                        <div class="subtitle-3">
+                            Vl. Dividendos: <span class="primary--text">{{ formatarDinheiro(item.vl_dividendos) }}</span>
                         </div>
                     </v-card-text>
 
@@ -27,7 +27,7 @@
 
                     <v-card-actions>
                         <v-btn
-                                color="deep-purple lighten-2"
+                                color="primary lighten-4"
                                 text
                                 @click="detalhar"
                         >
@@ -51,13 +51,32 @@
             }
         },
         mounted() {
-            this.getAll();
+            this.getRendimentos();
         },
         methods: {
-            getAll() {
+            getRendimentos() {
                 axios.get('/api/rendimentos?pagination=false').then(response => {
                     let rendimentos = response.data.data;
-                    this.data = this.tratarDados(rendimentos);
+                    let teste = this.tratarDados(rendimentos);
+                    Object.keys(teste).forEach(function (key) {
+                        teste[key]['vl_investido'] = 0;
+                    });
+                    this.getCotas(teste);
+                }).then(() => {
+                    this.visible = true;
+                })
+            },
+            getCotas(teste) {
+                axios.get('/api/cotas?pagination=false').then(response => {
+                    let investimentos = response.data.data;
+                    investimentos.forEach((item) => {
+                        if (teste[item.ds_sigla] !== undefined) {
+                            teste[item.ds_sigla].vl_investido += item.nr_cotas * item.vl_cota;
+                        }
+                    });
+                    Object.keys(teste).forEach((key) => {
+                        this.data.push(teste[key]);
+                    });
                 }).then(() => {
                     this.visible = true;
                 })
@@ -65,18 +84,19 @@
             tratarDados(dados) {
                 var novalista = [];
                 dados.reduce((res, value) => {
-                    if (!res[value.cd_fii]) {
-                        res[value.cd_fii] = {
+                    if (!res[value.fii.co_sigla]) {
+                        res[value.fii.co_sigla] = {
                             cd_fii: value.cd_fii,
                             sigla: value.fii.co_sigla,
                             administrador: value.fii.ds_administrador,
-                            valor: 0
+                            vl_dividendos: 0
                         };
-                        novalista.push(res[value.cd_fii])
+                        novalista[value.fii.co_sigla] = res[value.fii.co_sigla];
                     }
-                    res[value.cd_fii].valor += value.vl_recebido;
+                    res[value.fii.co_sigla].vl_dividendos += value.vl_recebido;
                     return res;
                 }, {});
+
 
                 return novalista;
             },
