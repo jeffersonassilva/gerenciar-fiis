@@ -95428,7 +95428,7 @@ var routes = [{
 }, {
   path: '/usuarios',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/usuarios/Usuarios */ "./resources/js/views/usuarios/Usuarios.vue"));
+    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/usuarios/Usuarios */ "./resources/js/views/usuarios/Usuarios.vue"));
   },
   meta: {
     title: 'Usuários'
@@ -95436,7 +95436,7 @@ var routes = [{
 }, {
   path: '/fiis',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/fiis/Fiis */ "./resources/js/views/fiis/Fiis.vue"));
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/fiis/Fiis */ "./resources/js/views/fiis/Fiis.vue"));
   },
   meta: {
     title: 'Fiis'
@@ -95476,7 +95476,7 @@ var routes = [{
 }, {
   path: '/recebiveis',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/dividendos/Recebiveis */ "./resources/js/views/dividendos/Recebiveis.vue"));
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/dividendos/Recebiveis */ "./resources/js/views/dividendos/Recebiveis.vue"));
   },
   meta: {
     title: 'Recebíveis'
@@ -95484,7 +95484,7 @@ var routes = [{
 }, {
   path: '/rendimentos',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/rendimentos/Rendimentos */ "./resources/js/views/rendimentos/Rendimentos.vue"));
+    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/rendimentos/Rendimentos */ "./resources/js/views/rendimentos/Rendimentos.vue"));
   },
   meta: {
     title: 'Rendimentos'

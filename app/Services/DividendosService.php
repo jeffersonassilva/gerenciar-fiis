@@ -67,6 +67,7 @@ class DividendosService extends AbstractService
                 $join->on(['rendimentos.cd_fii' => 'fiis.id', 'rendimentos.dt_pagamento' => 'dividendos.dt_pagamento']);
             })
             ->whereNull('rendimentos.id')
+            ->having('nr_cotas', '>', 0)
             ->orderBy('dividendos.dt_pagamento', 'asc')
             ->get();
     }
