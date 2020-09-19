@@ -46,8 +46,8 @@
             this.getAll();
         },
         methods: {
-            getAll() {
-                axios.get('/api/rendimentos?orderBy=id&sortedBy=desc').then(response => {
+            getAll(filtro = '') {
+                axios.get('/api/rendimentos?orderBy=id&sortedBy=desc' + filtro).then(response => {
                     this.pagination = response.data.data;
                     this.data = response.data.data;
                 }).then(() => {
@@ -55,7 +55,7 @@
                 })
             },
             onPageChange(page) {
-                this.getAll('?page=' + page);
+                this.getAll('&page=' + page);
             },
         }
     }
