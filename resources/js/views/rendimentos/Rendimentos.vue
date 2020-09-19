@@ -46,8 +46,8 @@
             this.getAll();
         },
         methods: {
-            getAll(filtro = '') {
-                axios.get('/api/rendimentos' + filtro).then(response => {
+            getAll() {
+                axios.get('/api/rendimentos?orderBy=id&sortedBy=desc').then(response => {
                     this.pagination = response.data.data;
                     this.data = response.data.data;
                 }).then(() => {
