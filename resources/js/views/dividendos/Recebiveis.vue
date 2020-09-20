@@ -13,6 +13,7 @@
                 :disable-pagination=true
                 no-data-text="Nenhum registro encontrado"
                 class="elevation-1">
+        >
             <template v-slot:item="row">
                 <tr>
                     <td>{{row.item.co_sigla}}</td>
