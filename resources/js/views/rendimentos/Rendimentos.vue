@@ -11,6 +11,7 @@
                 :items="data.data"
                 :items-per-page="data.per_page"
                 :hide-default-footer=true
+                no-data-text="Nenhum registro encontrado"
                 class="elevation-1"
         ></v-data-table>
 
