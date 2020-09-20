@@ -12,7 +12,7 @@
                 :hide-default-footer=true
                 :disable-pagination=true
                 no-data-text="Nenhum registro encontrado"
-                class="elevation-1"
+                class="elevation-1">
         >
             <template v-slot:item="row">
                 <tr>
