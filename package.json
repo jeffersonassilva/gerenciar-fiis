@@ -11,26 +11,26 @@
     },
     "devDependencies": {
         "axios": "^0.19",
-        "bootstrap": "^4.1.0",
+        "bootstrap": "^4.5.3",
         "cross-env": "^5.1",
-        "jquery": "^3.2",
-        "laravel-mix": "^5.0.5",
-        "lodash": "^4.17.19",
+        "jquery": "^3.5.1",
+        "laravel-mix": "^5.0.9",
+        "lodash": "^4.17.20",
         "popper.js": "^1.12",
-        "resolve-url-loader": "^2.3.1",
-        "sass": "^1.26.8",
-        "sass-loader": "^7.1.0",
-        "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.11"
+        "resolve-url-loader": "^3.1.2",
+        "sass": "^1.30.0",
+        "sass-loader": "^7.3.1",
+        "vue": "^2.6.12",
+        "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
         "material-design-icons-iconfont": "^5.0.1",
         "node-sass": "^4.14.1",
         "text-mask-addons": "^3.8.0",
-        "v-mask": "^2.2.1",
+        "v-mask": "^2.2.3",
         "v-money": "^0.8.1",
-        "vee-validate": "^3.3.2",
-        "vue-router": "^3.3.2",
-        "vuetify": "^2.2.32"
+        "vee-validate": "^3.4.5",
+        "vue-router": "^3.4.9",
+        "vuetify": "^2.3.21"
     }
 }
