@@ -32,5 +32,8 @@
         "vee-validate": "^3.4.5",
         "vue-router": "^3.4.9",
         "vuetify": "^2.3.21"
+    },
+    "resolutions": {
+        "node-forge" : "^0.10.0"
     }
 }
