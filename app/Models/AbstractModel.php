@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use AlexAlexandre\MappableModels\Traits\HasNestedAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 abstract class AbstractModel extends Model
 {
-    use HasNestedAttributes, SoftDeletes;
+    use SoftDeletes;
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -22,13 +21,6 @@ abstract class AbstractModel extends Model
     protected $guarded = [self::UPDATED_AT];
 
     /**
-     * The nested's (relations)
-     *
-     * @var array
-     */
-    public $nested = [];
-
-    /**
      * The attributes that should be hidden for serialization.
      *
      * @var array
@@ -39,6 +31,4 @@ abstract class AbstractModel extends Model
         self::DELETED_AT,
         'pivot'
     ];
-
-    public $timestamps = true;
 }

@@ -1,17 +1,16 @@
 {
-    "name": "laravel/laravel",
+    "name": "jeffersonassilva/gerenciar-fiis",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Sistema de gerenciamento de Investimentos em Fundos Imobiliários.",
     "keywords": [
         "framework",
         "laravel"
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.1.3",
-        "alexalexandre/mappable-models": "dev-master",
+        "php": "^7.2",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "^6.20.12",
         "laravel/tinker": "^1.0",
         "prettus/l5-repository": "^2.6"
     },

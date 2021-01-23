@@ -16,7 +16,7 @@ services:
     restart: on-failure
   web:
     build: ./docker
-    image: jeffersonassilva/laravel-apache-postgres
+    image: jeffersonassilva/php72-apache
     container_name: gerenciar-fiis
     working_dir: /var/www/html/gerenciar-fiis
     ports:
