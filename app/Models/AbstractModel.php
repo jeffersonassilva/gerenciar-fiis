@@ -39,6 +39,4 @@ abstract class AbstractModel extends Model
         self::DELETED_AT,
         'pivot'
     ];
-
-    public $timestamps = true;
 }
